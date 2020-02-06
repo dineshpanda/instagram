@@ -31,6 +31,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_row_from_user
+    @post = Post.new
+
+    @post.user_id = params.fetch("user_id")
+
+    if @post.valid?
+      @post.save
+
+      redirect_to("/users/#{@post.user_id}", notice: "Post created successfully.")
+    else
+      render("post_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @post = Post.find(params.fetch("prefill_with_id"))
 
