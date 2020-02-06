@@ -1,0 +1,32 @@
+<h1>
+  Edit post #<%= @post.id %>
+</h1>
+
+<hr>
+
+<!-- Form post start -->
+<form action="/update_post/<%= @post.id %>" method="post">
+<!-- Form post end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @post.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update post
+  </button>
+</form>
+
+<hr>
+
+<a href="/posts">
+  Go back
+</a>
